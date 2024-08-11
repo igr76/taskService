@@ -4,6 +4,7 @@ package org.example.taskservice;
 import lombok.RequiredArgsConstructor;
 import org.example.taskservice.jwt.JwtFilter;
 import org.example.taskservice.utils.Encoder;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -26,6 +27,8 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class WebSecurityConfig {
 
   private final JwtFilter jwtFilter;
+    @Qualifier("UserDetailServiceImpl")
+    private final UserDetailsService userDetailService;
 
 
   private static final String[] AUTH_WHITELIST = {
@@ -37,12 +40,8 @@ public class WebSecurityConfig {
       "/post/*",
       "/users/*"
   };
-  private final UserDetailsService userDetailService;
 
-//  public WebSecurityConfig(
-//      @Qualifier("UserDetailServiceImpl") UserDetailsService userDetailService) {
-//    this.userDetailService = userDetailService;
-//  }
+
 
   @Bean
   protected DaoAuthenticationProvider daoAuthenticationProvider() {

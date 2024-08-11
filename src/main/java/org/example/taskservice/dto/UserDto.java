@@ -19,8 +19,6 @@ import java.util.Collection;
 @EqualsAndHashCode
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserDto {
-    /** id пользователя     */
-        Integer id;
 
     /** Имя пользователя     */
     String name;
@@ -30,14 +28,7 @@ public class UserDto {
 
     /**     * пароль пользователя     */
     String password;
-    /**
-     * фото пользователя
-     */
 
-    String image;
-
-    /**     * сообщения друзей пользователя     */
-    Collection<String> message;
 
 
 }

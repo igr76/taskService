@@ -4,6 +4,7 @@ package org.example.taskservice.mapper;
 import org.example.taskservice.dto.UserDto;
 import org.example.taskservice.entity.UserEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.Collection;
 
@@ -13,9 +14,7 @@ import java.util.Collection;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-//    @Mapping(target = "role", ignore = true)
-//    @Mapping(target = "subscriptions", ignore = true)
-//    @Mapping(target = "userPost", ignore = true)
+    @Mapping(target = "id", ignore = true)
     UserEntity toEntity(UserDto userDto);
 
 

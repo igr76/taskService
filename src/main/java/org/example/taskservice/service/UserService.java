@@ -1,43 +1,21 @@
 package org.example.taskservice.service;
 
-
-import lombok.NonNull;
-import org.example.taskservice.dto.NewPassword;
 import org.example.taskservice.dto.UserDto;
 import org.example.taskservice.entity.UserEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.security.core.userdetails.UserDetails;
 
-/**
- * сервис пользователя
- */
+/** Сервис пользователей*/
 public interface UserService {
-  public UserEntity getByLogin(@NonNull String login);
+    /** Получить данные пользователя*/
+    UserDto getUser(String login/*, Authentication authentication*/);
+    /** Обновить данные пользователя*/
+    UserDto updateUser(UserDto newUserDto/*, Authentication authentication*/);
+    /** Удалить данные пользователя*/
+    void deleteUser(String login/*, Authentication authentication*/);
+    /** Создать пользователя*/
+    UserDto greateUser(UserDto userDto/*, Authentication authentication*/);
+    /** Получить данные пользователя ро логину*/
+    UserDto loadUserByName(String login);
 
-  /**
-   * получить пользователя
-   */
-  UserDto getUser(Authentication authentication);
-
-  /**
-   * обновить пользователя
-   */
-  UserDto updateUser(UserDto userDto, Authentication authentication) ;
-
-  /**
-   * удалить пользователя
-   */
-  void deleteUser(UserDto userDto, Authentication authentication) ;
-  /**
-   * установить новый пароль пользователя
-   */
-  NewPassword setPassword(NewPassword newPassword);
-
-
-  /** найти пользователя по id */
-  UserDto findById(int id, Authentication authentication);
-  /** отправить сообщение другу */
-  void messageOfFriend(int id,String message);
-/** добавить пользователя в подписку */
- // void addSubscription(String friend, Authentication authentication);
+    UserEntity getByLogin(String login);
 }
