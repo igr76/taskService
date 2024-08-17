@@ -37,11 +37,6 @@ public class UserEntity {
     @Column(name = "password")
     String password;
 
-    /**
-     * фото пользователя
-     */
-    @Column(name = "image")
-    String image;
 
 
     /**     * роль пользователя     */

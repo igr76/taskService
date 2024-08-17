@@ -1,40 +1,35 @@
 package org.example.taskservice.entity;
 
+
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.example.taskservice.dto.Status;
 
-import java.util.List;
-
-/**     * Сущность задач     */
+/** Cущность задач  */
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "tasks")
-@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Task {
-    /** id задачи     */
+    /** номер задачи  */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    Integer id;
-    /** описание задачи    */
-    String task;
-    /** автор задачи    */
-    @OneToOne
-    UserEntity author;
-    /** исполнитель задачи   */
-    @OneToOne
-    UserEntity executor;
-    /** комментарии к задаче    */
-    @ElementCollection
-    @CollectionTable(name = "task_comment", joinColumns = @JoinColumn(name = "task_id"))
-    List<String> comment;
-    /** статут задачи     */
+    int id;
+    /** Заголовок задачи  */
+    String heading;
+    /** Описание задачи  */
+    String description;
+    /** Статус задачи  */
     Status status;
+    /** Автор задачи  */
+    @ManyToOne
+    UserEntity author;
+    /** Исполнитель задачи  */
+    @ManyToOne
+    UserEntity executor;
 }
