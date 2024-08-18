@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
       throw new UnsupportedOperationException("Такой пользователь уже существует");
     } else userRepository.save(userMapper.toEntity(userDto));
       return userDto;
-
   }
 
   @Override
