@@ -1,0 +1,25 @@
+version: '2.3'
+
+services:
+  app:
+    build: .
+    container_name: taskManagement
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/g
+      - SPRING_DATASOURCE_USERNAME=igr
+      - SPRING_DATASOURCE_PASSWORD=11111111
+    ports:
+      - "8081:8081"
+
+
+  db:
+    image: 'postgres:15'
+    container_name: db
+    environment:
+      - POSTGRES_DB=g
+      - POSTGRES_USER=igr
+      - POSTGRES_PASSWORD=11111111
+    ports:
+      - "5432:5432"
