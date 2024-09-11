@@ -13,8 +13,7 @@ public interface СommentService {
     /** Создать комментарий к задаче
      * @param commentDto - тело комментария*/
     СommentDto greatСomment(СommentDto commentDto);
-    /** Удалить комментарий
-     * @param id - номер комментария*/
+    /** Удалить комментарий   @param id - номер комментария*/
     void deleteСomment(int id);
 
 }
