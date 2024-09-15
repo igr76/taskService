@@ -27,9 +27,9 @@ public class Task {
     /** Статус задачи  */
     Status status;
     /** Автор задачи  */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     UserEntity author;
     /** Исполнитель задачи  */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     UserEntity executor;
 }
