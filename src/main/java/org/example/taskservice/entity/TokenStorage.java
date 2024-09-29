@@ -14,7 +14,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
-@Table(name = "tokenStorage")
+@Table(name = "token_storage")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class TokenStorage {
     @Id
@@ -22,6 +22,6 @@ public class TokenStorage {
     String login;
 
     /** refreshToken     */
-    @Column(name = "refreshToken")
+    @Column(name = "refresh_token")
     String refreshToken;
 }
