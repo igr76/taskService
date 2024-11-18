@@ -14,6 +14,7 @@ import java.util.List;
  */
 @Mapper(componentModel = "spring")
 public interface TaskMapper {
+
     @Mapping(target = "author.id", source = "author")
     @Mapping(target = "executor.id", source = "executor")
     @Mapping(target = "status", source = "status")
