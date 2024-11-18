@@ -37,8 +37,6 @@ public class UserEntity {
     @Column(name = "password")
     String password;
 
-
-
     /**     * роль пользователя     */
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
