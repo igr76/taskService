@@ -25,11 +25,11 @@ public class UserEntity {
     @Column(name = "id", nullable = false)
     Integer id;
 
-    /** Имя пользователя     */
+    /** Имя пользователя   */
     @Column(name = "name")
     String Name;
 
-    /**     * почта пользователя     */
+    /**     * почта пользователя  */
     @Column(name = "email")
     String email;
 
@@ -37,9 +37,7 @@ public class UserEntity {
     @Column(name = "password")
     String password;
 
-
-
-    /**     * роль пользователя     */
+    /**     * роль2 пользователя     */
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
     Role role;
